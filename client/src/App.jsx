@@ -5,7 +5,7 @@ function App() {
 
   return (
     <>
-<h1>Bunny Blog MERN Stack </h1>
+<h1>Bunny Blog with a MERN Stack </h1>
     </>
   )
 }
