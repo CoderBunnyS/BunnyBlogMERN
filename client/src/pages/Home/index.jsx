@@ -2,7 +2,7 @@
 
 function Home() {
   return (
-    <div>MERN Home Page</div>
+    <div>MERN Portfolio Home Page</div>
   )
 }
 
