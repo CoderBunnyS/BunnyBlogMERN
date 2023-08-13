@@ -8,5 +8,7 @@ const port = process.env.PORT || 8000
 app.get('/', (req, res) => {
     res.send({ message: "Backend MERN API Server successfully started"})
 })
+
+app.use("/api/blogs", require("./routes/blogsRoute"));
 //nodemon server/server
 app.listen(port, () => console.log(`Backend Server Running On PORT ${port}`));
