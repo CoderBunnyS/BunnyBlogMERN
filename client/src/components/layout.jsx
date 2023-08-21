@@ -10,7 +10,7 @@ function Layout(props) {
         onClick={() => {
           
           navigate('/');
-        }}>Bunny Blog MERN</h1>
+        }}>Bunny Blog MERN stack</h1>
       </div>
       <div className="p-5">{props.children}</div>
     </div>
