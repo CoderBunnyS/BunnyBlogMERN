@@ -1,4 +1,6 @@
 import { useState } from "react";
+import axios from "axios";
+import {toast} from "react-hot-toast";
 
 function BlogForm() {
   const [blog, setBlog] = useState({
@@ -7,8 +9,13 @@ function BlogForm() {
     image: "",
   });
 
-  const onSave = () => {
-    console.log(blog);
+  const onSave = async() => {
+    try {
+      const response = await axios.post("/api/blogs", blog);
+      toast.success(response.data.message);
+    } catch (error) {
+      toast.error(error.message);
+    }
   };
   return (
     <div className="flex flex-col gap-8">
