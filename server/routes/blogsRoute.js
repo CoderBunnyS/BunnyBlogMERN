@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const Blog = require("../models/blogModel")
 
 //Get all blogs
 router.get("/", (req, res) => {
@@ -13,9 +14,14 @@ router.get("/:id", (req, res) => {
 });
 
 //Add a blog post
-
-router.post("/", (req, res) => {
-  res.send({ message: "add a blog post api route" });
+router.post("/", async(req, res) => {
+  try {
+    const blog = new Blog(req.body);
+    await blog.save();
+    res.status(201).json({ message: "Blog Post Added Successfully" });
+  } catch (error) {
+    res.status(400).json({ messsage: error.message });
+  }
 });
 
 // Edit a blog post
