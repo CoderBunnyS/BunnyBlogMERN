@@ -26,7 +26,7 @@ function App() {
           }
         />
         <Route
-          path="/addblog/"
+          path="/add-blog/"
           element={
             <Layout>
               <AddBlog />
@@ -34,7 +34,7 @@ function App() {
           }
         />
         <Route
-          path="/edit/:id"
+          path="/edit-blog/:id"
           element={
             <Layout>
               <EditBlog />

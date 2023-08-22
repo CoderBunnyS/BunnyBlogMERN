@@ -9,7 +9,7 @@ function BlogForm() {
     image: "",
   });
 
-  const onSave = async() => {
+  const onSave = async () => {
     try {
       const response = await axios.post("/api/blogs", blog);
       toast.success(response.data.message);
