@@ -3,7 +3,6 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 
-
 function Blog() {
   const [blog, setBlog] = useState();
   const [loading, setLoading] = useState(false);

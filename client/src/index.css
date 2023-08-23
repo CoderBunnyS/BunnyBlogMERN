@@ -6,7 +6,9 @@
 * {
   font-family: "Montserrat", sans-serif;
 }
-
+.banner {
+  background-color: #51034d;
+}
 input,
 textarea {
   border: 1px solid #a8a9a9;
@@ -34,7 +36,7 @@ button {
   margin-top: 25px;
 }
 .btn-contained {
-  background-color: #1F2937;
+  background-color: #371f36;
   color: #fff;
   border-radius: 2px;
   padding: 0 20px;
