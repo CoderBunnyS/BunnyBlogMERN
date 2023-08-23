@@ -16,11 +16,16 @@ router.get("/", async (req, res) => {
 });
 
 // Get blog based on id
-router.get("/:id", (req, res) => {
-  res.send({
-    message: "get a blog post by id api route",
-    blogid: req.params.id,
-  });
+router.get("/:id", async (req, res) => {
+  try {
+    const blog = await Blog.findById(req.params.id);
+    res.status(200).json({
+      message: "Blog post fetched successfully",
+      data: blog,
+    });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
 });
 
 //Add a blog post
