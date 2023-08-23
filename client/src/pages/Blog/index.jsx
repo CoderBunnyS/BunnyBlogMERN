@@ -3,6 +3,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 
+
 function Blog() {
   const [blog, setBlog] = useState();
   const [loading, setLoading] = useState(false);
@@ -11,7 +12,7 @@ function Blog() {
   const getData = async () => {
     try {
       setLoading(true);
-      const response = await axios.get("/api/blogs/${id}");
+      const response = await axios.get(`/api/blogs/${id}`);
       setBlog(response.data.data);
     } catch (error) {
       toast.error(error.mesage);
