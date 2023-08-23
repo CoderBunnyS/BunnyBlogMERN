@@ -1,8 +1,10 @@
 import { useState } from "react";
 import axios from "axios";
 import {toast} from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 function BlogForm() {
+  const navigate = useNavigate();
   const [blog, setBlog] = useState({
     title: "",
     description: "",
@@ -13,6 +15,7 @@ function BlogForm() {
     try {
       const response = await axios.post("/api/blogs", blog);
       toast.success(response.data.message);
+      navigate("/")
     } catch (error) {
       toast.error(error.message);
     }
@@ -52,7 +55,9 @@ function BlogForm() {
           placeholder="Enter image url"
         />
         <div className="flex justify-end gap-8">
-          <button className="btn-outlined">Cancel</button>
+          <button className="btn-outlined"
+          onClick={() => navigate('/')}      
+          >Cancel</button>
           <button className="btn-contained" onClick={onSave}>
             Save
           </button>

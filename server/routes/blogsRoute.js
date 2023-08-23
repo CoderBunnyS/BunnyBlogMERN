@@ -1,20 +1,30 @@
 const express = require("express");
 const router = express.Router();
-const Blog = require("../models/blogModel")
+const Blog = require("../models/blogModel");
 
 //Get all blogs
-router.get("/", (req, res) => {
-  res.send({ message: "get all blog post api route" });
+router.get("/", async (req, res) => {
+  try {
+    const blogs = await Blog.find();
+    res.status(200).json({
+      message: "All blog posts fetched successfully",
+      data: blogs,
+    });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
 });
 
 // Get blog based on id
 router.get("/:id", (req, res) => {
-  res.send({ message: "get a blog post by id api route", blogid: req.params.id });
-  
+  res.send({
+    message: "get a blog post by id api route",
+    blogid: req.params.id,
+  });
 });
 
 //Add a blog post
-router.post("/", async(req, res) => {
+router.post("/", async (req, res) => {
   try {
     const blog = new Blog(req.body);
     await blog.save();
