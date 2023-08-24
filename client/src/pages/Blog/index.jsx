@@ -25,6 +25,11 @@ function Blog() {
   console.log(loading);
   return (
     <div className="flex flex-col gap-8">
+    <div className="flex justify-end gap-8">
+    <button className="btn-outlined">Cancel</button>
+      <button className="btn-contained">Edit</button>
+      <button className="btn-outlined">Delete</button>
+    </div>
       <h1 className="text-xl">{blog?.title}</h1>
       <img src={blog?.image} alt="" className="object-bover rounded" />
       <p>{blog?.description}</p>
