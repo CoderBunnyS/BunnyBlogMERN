@@ -50,3 +50,6 @@ button {
   cursor: pointer;
   border: 1px solid #1F2937;
 }
+.title {
+  color: #51034d;
+}

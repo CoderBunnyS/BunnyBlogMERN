@@ -2,11 +2,13 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 function Blog() {
   const [blog, setBlog] = useState();
   const [loading, setLoading] = useState(false);
   const { id } = useParams();
+  const navigate = useNavigate();
 
   const getData = async () => {
     try {
@@ -25,12 +27,18 @@ function Blog() {
   console.log(loading);
   return (
     <div className="flex flex-col gap-8">
-    <div className="flex justify-end gap-8">
-    <button className="btn-outlined">Cancel</button>
-      <button className="btn-contained">Edit</button>
-      <button className="btn-outlined">Delete</button>
-    </div>
-      <h1 className="text-xl">{blog?.title}</h1>
+      <div className="flex justify-between items-center">
+        <h1 className="text-3xl title">{blog?.title}</h1>
+        <div className="flex gap-3">
+          <button className="btn-outlined"
+          onClick={() => {
+            navigate("/");
+          }}
+          >Back</button>
+          <button className="btn-contained">Edit</button>
+          <button className="btn-outlined">Delete</button>
+        </div>
+      </div>
       <img src={blog?.image} alt="" className="object-bover rounded" />
       <p>{blog?.description}</p>
     </div>

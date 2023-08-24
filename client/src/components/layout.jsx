@@ -14,7 +14,7 @@ function Layout(props) {
             navigate("/");
           }}
         >
-          Bunny Blog MERN stack
+          Bunny's Solutions Engineering Blog
         </h1>
       </div>
       <div className="p-5">{props.children}</div>
