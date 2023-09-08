@@ -40,8 +40,13 @@ router.post("/", async (req, res) => {
 });
 
 // Edit a blog post
-router.put("/:id", (req, res) => {
-  res.send({ message: "update a blog post api route", blogid: req.params.id });
+router.put("/:id", async (req, res) => {
+  try {
+    await Blog.findByIdAndUpdate(req.params.id, req.body);
+    res.status(200).json({ message: "Blog post updated successfully" });
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
 });
 
 //delete a blog post

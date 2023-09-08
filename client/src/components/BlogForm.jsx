@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import {toast} from "react-hot-toast";
+import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
-function BlogForm({blogData}) {
+function BlogForm({ blogData }) {
   const navigate = useNavigate();
   const [blog, setBlog] = useState({
     title: "",
@@ -13,16 +13,22 @@ function BlogForm({blogData}) {
 
   const onSave = async () => {
     try {
-      const response = await axios.post("/api/blogs", blog);
+      let response;
+      if (blogData) {
+        response = await axios.put(`/api/blogs/${blogData._id}`, blog);
+      } else {
+        response = await axios.post("/api/blogs", blog);
+      }
+
       toast.success(response.data.message);
-      navigate("/")
+      navigate("/");
     } catch (error) {
       toast.error(error.message);
     }
   };
 
   useEffect(() => {
-    if(blogData){
+    if (blogData) {
       setBlog(blogData);
     }
   }, [blogData]);
@@ -61,9 +67,9 @@ function BlogForm({blogData}) {
           placeholder="Enter image url"
         />
         <div className="flex justify-end gap-8">
-          <button className="btn-outlined"
-          onClick={() => navigate('/')}      
-          >Cancel</button>
+          <button className="btn-outlined" onClick={() => navigate("/")}>
+            Cancel
+          </button>
           <button className="btn-contained" onClick={onSave}>
             Save
           </button>
