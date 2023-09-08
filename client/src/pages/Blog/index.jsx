@@ -30,12 +30,20 @@ function Blog() {
       <div className="flex justify-between items-center">
         <h1 className="text-3xl title">{blog?.title}</h1>
         <div className="flex gap-3">
-          <button className="btn-outlined"
-          onClick={() => {
-            navigate("/");
-          }}
-          >Back</button>
-          <button className="btn-contained">Edit</button>
+          <button
+            className="btn-outlined"
+            onClick={() => {
+              navigate("/");
+            }}
+          >
+            Back
+          </button>
+          <button
+            className="btn-contained"
+            onClick={() => navigate(`/edit-blog/${id}`)}
+          >
+            Edit
+          </button>
           <button className="btn-outlined">Delete</button>
         </div>
       </div>
