@@ -51,8 +51,13 @@ router.put("/:id", async (req, res) => {
 
 //delete a blog post
 
-router.delete("/:id", (req, res) => {
-  res.send({ message: "delete a blog post api route", blogid: req.params.id });
+router.delete("/:id", async(req, res) => {
+  try {
+    await Blog.findByIdAndDelete(req.params.id);
+    res.status(200).json({ message: "blog post deleted successfully" });
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
 });
 
 module.exports = router;

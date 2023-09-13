@@ -21,6 +21,19 @@ function Blog() {
       setLoading(false);
     }
   };
+
+  const onDelete = async () => {
+    try {
+      setLoading(true);
+      const response = await axios.delete(`/api/blogs/${id})`);
+      toast.success(response.data.message);
+      navigate("/");
+    } catch (error) {
+      toast.error(error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
   useEffect(() => {
     getData();
   }, []);
@@ -44,7 +57,9 @@ function Blog() {
           >
             Edit
           </button>
-          <button className="btn-outlined">Delete</button>
+          <button className="btn-outlined" onClick={onDelete}>
+            Delete
+          </button>
         </div>
       </div>
       <img src={blog?.image} alt="" className="object-bover rounded" />
