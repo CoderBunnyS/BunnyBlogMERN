@@ -33,7 +33,7 @@ router.post("/", async (req, res) => {
   try {
     const blog = new Blog(req.body);
     await blog.save();
-    res.status(201).json({ message: "Blog Post Added Successfully" });
+    res.status(201).json({ message: "Post Added Successfully" });
   } catch (error) {
     res.status(400).json({ messsage: error.message });
   }
@@ -51,12 +51,13 @@ router.put("/:id", async (req, res) => {
 
 //delete a blog post
 
-router.delete("/:id", async(req, res) => {
+router.delete("/:id", async (req, res) => {
   try {
     await Blog.findByIdAndDelete(req.params.id);
-    res.status(200).json({ message: "blog post deleted successfully" });
+    res.status(200).json({ message: "Post Deleted Successfully" });
   } catch (error) {
     res.status(400).json({ message: error.message });
+    console.log(error.message);
   }
 });
 

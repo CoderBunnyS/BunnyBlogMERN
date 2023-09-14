@@ -1,11 +1,9 @@
 /* eslint-disable react/prop-types */
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 import { toast } from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
 
-function BlogForm({ blogData }) {
-  const navigate = useNavigate();
+function BlogForm() {
   const [blog, setBlog] = useState({
     title: "",
     description: "",
@@ -14,25 +12,19 @@ function BlogForm({ blogData }) {
 
   const onSave = async () => {
     try {
-      let response;
-      if (blogData) {
-        response = await axios.put(`/api/blogs/${blogData._id}`, blog);
-      } else {
-        response = await axios.post("/api/blogs", blog);
-      }
-
+      const response = await axios.post("/api/blogs", blog);
       toast.success(response.data.message);
-      navigate("/");
     } catch (error) {
       toast.error(error.message);
     }
   };
 
-  useEffect(() => {
-    if (blogData) {
-      setBlog(blogData);
-    }
-  }, [blogData]);
+
+  // useEffect(() => {
+  //   if (blogData) {
+  //     setBlog(blogData);
+  //   }
+  // }, [blogData]);
   return (
     <div className="flex flex-col gap-8">
       <div>

@@ -14,7 +14,7 @@ function Layout(props) {
             navigate("/");
           }}
         >
-          Bunny's Solutions Engineering Blog
+          The Solutions Engineering Blog
         </h1>
       </div>
       <div className="p-5">{props.children}</div>
