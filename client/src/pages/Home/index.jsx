@@ -1,11 +1,11 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
-import {useNavigate} from "react-router-dom"
+//import {useNavigate} from "react-router-dom"
 
 
 function Home() {
-  const navigate = useNavigate();
+  
   const [loading, setLoading] = useState(false)
   const [blogs , setBlogs] = useState([]) 
   const getData = async () => {

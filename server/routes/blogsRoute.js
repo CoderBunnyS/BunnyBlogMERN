@@ -3,7 +3,7 @@ const router = express.Router();
 const Blog = require("../models/blogModel");
 
 //Get all blogs
-router.get("/", async (req, res) => {
+router.get("/", async(req, res) => {
   try {
     const blogs = await Blog.find();
     res.status(200).json({
