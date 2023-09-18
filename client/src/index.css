@@ -54,3 +54,22 @@ button {
   color: #51034d;
 }
 
+.container {
+  display: flex;
+  width: 100%;
+}
+
+.contained {
+  flex: 1;
+  padding: 10px;
+}
+
+.contained-content-center {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.blogPara {
+  font-size: 150%;
+}

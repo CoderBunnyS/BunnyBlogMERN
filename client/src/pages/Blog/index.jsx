@@ -41,7 +41,7 @@ function Blog() {
   return (
     <div className="flex flex-col gap-8">
       <div className="flex justify-between items-center">
-        <h1 className="text-3xl title">{blog?.title}</h1>
+        
         <div className="flex gap-3">
           <button
             className="btn-outlined"
@@ -62,8 +62,12 @@ function Blog() {
           </button>
         </div>
       </div>
-      <img src={blog?.image} alt="" className="object-bover rounded" />
-      <p>{blog?.description}</p>
+      <div className="container" >
+      <img src={blog?.image} className="contained object-bover rounded" />
+      <h1 className="text-3xl contained contained-content-center title">{blog?.title}</h1>
+      
+      </div>
+      <p className=" blogPara">{blog?.description}</p>
     </div>
   );
 }
