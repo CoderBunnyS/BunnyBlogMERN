@@ -48,7 +48,7 @@ function BlogForm({ blogData }) {
       </div>
       <div>
         <label htmlFor="description" className="text-gray-600 text/sm">
-          Title
+          Post Body
         </label>
         <textarea
           type="text"
