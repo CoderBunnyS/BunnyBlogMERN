@@ -37,7 +37,7 @@ function BlogForm({ blogData }) {
     <div className="flex flex-col gap-8">
       <div>
         <label htmlFor="title" className="text-gray-600 text/sm">
-          Title
+          Blog Title
         </label>
         <input
           type="text"
@@ -59,7 +59,7 @@ function BlogForm({ blogData }) {
       </div>
       <div>
         <label htmlFor="image" className="text-gray-600 text-sm">
-          Image
+          Blog Image
         </label>
         <input
           value={blog.image}
