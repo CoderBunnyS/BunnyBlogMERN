@@ -38,7 +38,7 @@ function Home() {
           <div
             key={blog._id}
             className="cursor-pointer border p-3 rounded border-gray-300"
-            onClick={() => navigate(`/blog/${blog._id}`)}
+            onClick={() => navigate(`blog/${blog._id}`)}
           >
             <img
               src={blog.image}
