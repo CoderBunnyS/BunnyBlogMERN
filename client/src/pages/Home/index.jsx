@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import Loader from "../../components/Loader";
 
 function Home() {
   const navigate = useNavigate();
@@ -23,10 +24,9 @@ function Home() {
     getData();
   }, []);
 
-  //temporary
-  console.log(loading);
   return (
     <div>
+      {loading && <Loader />}
       <div className="flex justify-between items-center">
         <h1 className="text-xl font-bold text-gray-700">All Blog Posts</h1>
         <button className="btn-contained" onClick={() => navigate("/add-blog")}>
