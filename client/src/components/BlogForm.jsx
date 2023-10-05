@@ -3,8 +3,10 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import Loader from "./Loader";
 
 function BlogForm({ blogData }) {
+  const [loading, setLoading] = useState(false)
   const navigate = useNavigate();
   const [blog, setBlog] = useState({
     title: "",
@@ -14,6 +16,7 @@ function BlogForm({ blogData }) {
 
   const onSave = async () => {
     try {
+      setLoading(true)
       let response;
       if (blogData) {
         response = await axios.put(`/api/blogs/${blogData._id}`, blog);
@@ -24,6 +27,8 @@ function BlogForm({ blogData }) {
       navigate("/");
     } catch (error) {
       toast.error(error.message);
+    } finally {
+      setLoading(false)
     }
   };
 
@@ -35,6 +40,7 @@ function BlogForm({ blogData }) {
 
   return (
     <div className="flex flex-col gap-8">
+    {loading && <Loader />}
       <div>
         <label htmlFor="title" className="text-gray-600 text/sm">
           Blog Title

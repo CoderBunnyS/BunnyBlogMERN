@@ -3,6 +3,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import BlogForm from "../../components/BlogForm";
+import Loader from "../../components/Loader";
 
 function EditBlog() {
   const [blog, setBlog] = useState();
@@ -23,9 +24,10 @@ function EditBlog() {
   useEffect(() => {
     getData();
   }, []);
-  console.log(loading);
+
   return (
     <div className="flex flex-col gap-10">
+      {loading && <Loader />}
       <h1 className="text-2xl font-bold text-gray-800">Edit Blog Post</h1>
       <hr />
       <BlogForm blogData={blog} />

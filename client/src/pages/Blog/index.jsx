@@ -3,6 +3,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import Loader from "../../components/Loader";
 
 function Blog() {
   const [blog, setBlog] = useState();
@@ -40,6 +41,7 @@ function Blog() {
   console.log(loading);
   return (
     <div className="flex flex-col gap-8">
+    {loading && <Loader />}
       <div className="flex justify-between items-center">
         
         <div className="flex gap-3 buttonBox">
