@@ -72,9 +72,11 @@ button {
 
 .blogPara {
   font-size: 150%;
+  white-space: pre-line;
 }
 
 .buttonBox {
   margin-left: auto;
+  
 }
 
