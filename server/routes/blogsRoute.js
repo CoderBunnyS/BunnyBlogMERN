@@ -4,8 +4,8 @@ const Blog = require("../models/blogModel");
 
 //Get all blogs
 router.get("/", async(req, res) => {
-  try {
-    const blogs = await Blog.find();
+  try {    
+    const blogs = await Blog.find().sort({ createdAt: -1 });
     res.status(200).json({
       message: "All blog posts fetched successfully",
       data: blogs,

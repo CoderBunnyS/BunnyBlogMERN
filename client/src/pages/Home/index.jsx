@@ -46,6 +46,7 @@ function Home() {
               className="h-64 w-full object-cover rounded"
             />
             <h1 className="text-2xl text-gray-700 mt-3">{blog.title}</h1>
+            <h2 className="text-l text-gray-700 mt-3">{new Date(blog.createdAt).toLocaleDateString("en-US")}</h2>
           </div>
         ))}
       </div>
