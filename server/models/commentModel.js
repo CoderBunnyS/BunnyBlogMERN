@@ -7,16 +7,20 @@ const commentSchema = new mongoose.Schema(
       required: true,
       trim: true,
     },
+    email: {
+        type: String,
+        required: false,
+        trim: true,
+      },
     comment: {
       type: String,
       required: true,
       trim: true,
     },
-    email: {
-      type: String,
-      required: false,
-      trim: true,
-    },
+    blogPost: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'BlogPost'
+      },
   },
   { timestamps: true }
 );
