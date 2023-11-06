@@ -22,14 +22,20 @@ router.post('/comments', async (req, res) => {
 });
 
 // Retrieve all comments
-router.get('/comments', async (req, res) => {
-  try {
-    const comments = await Comment.find().sort({ createdAt: -1 });
-    res.json(comments);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'Server error' });
-  }
-});
+router.get('/:id/comments', async (req, res) => {
+    try {
+        console.log("You got some comments")
+    } catch (error) {
+        
+    }
+
+    // try {
+    //   const comments = await Comment.find({ blogPost: req.params.blogPostId });
+    //   res.json(comments);
+    //   console.log("you got some comments")
+    // } catch (err) {
+    //   res.status(500).json({ message: err.message });
+    // }
+  });
 
 module.exports = router;
