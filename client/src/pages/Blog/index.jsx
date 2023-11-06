@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import Loader from "../../components/Loader";
+import Comments from "../../components/comments";
 
 function Blog() {
   const [blog, setBlog] = useState();
@@ -72,6 +73,7 @@ function Blog() {
      
       </div>
       <p className=" blogPara">{blog?.description}</p>
+      <div className="comments"><Comments blogId={id} /></div>
     </div>
   );
 }

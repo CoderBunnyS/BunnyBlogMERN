@@ -1,22 +1,35 @@
 const express = require('express');
 const router = express.Router();
-const comments = require("../models/commentModel");
+const Comment = require('../models/Comment');
 
-// //get all comments
-// router.get(`/{id}`, (req, res) => {
-//     res.send('Get all comments');
-// });
+// Create a new comment
+router.post('/comments', async (req, res) => {
+  try {
+    const { username, email, text } = req.body;
+    const comment = new Comment({
+      username,
+      email,
+      text,
+      createdAt: new Date(),
+    });
 
-// Create a new document in the collection
-router.post('/create', comments.create);
+    await comment.save();
+    res.status(201).json(comment);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Server error' });
+  }
+});
 
-// Retrieve data from the collection
-router.get('/read', comments.read);
-
-// Update a document in the collection
-router.put('/update/:id', comments.update);
-
-// Delete a document from the collection
-router.delete('/delete/:id', comments.delete);
+// Retrieve all comments
+router.get('/comments', async (req, res) => {
+  try {
+    const comments = await Comment.find().sort({ createdAt: -1 });
+    res.json(comments);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Server error' });
+  }
+});
 
 module.exports = router;
