@@ -1,6 +1,6 @@
 // import React from 'react'
 
-function comments() {
+function Comments() {
   return (
     <div>
     <h3>Comments</h3>
@@ -11,4 +11,4 @@ function comments() {
   )
 }
 
-export default comments
+export default Comments
