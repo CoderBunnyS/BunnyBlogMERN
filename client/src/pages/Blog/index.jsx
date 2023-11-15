@@ -4,8 +4,6 @@ import { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import Loader from "../../components/Loader";
-import Comments from "../../components/Comments";
-import CommentForm from "../../components/CommentForm";
 
 function Blog() {
   const [blog, setBlog] = useState();
@@ -74,8 +72,6 @@ function Blog() {
      
       </div>
       <p className=" blogPara">{blog?.description}</p>
-      <Comments />
-      <CommentForm />
     </div>
   );
 }

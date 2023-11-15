@@ -28,7 +28,7 @@ function Home() {
     <div>
       {loading && <Loader />}
       <div className="flex justify-between items-center">
-        <h1 className="text-xl font-bold text-gray-700">All Blog Posts</h1>
+        {/* <h1 className="text-xl font-bold text-gray-700">All Blog Posts</h1> */}
         <button className="btn-contained" onClick={() => navigate("/add-blog")}>
           <a href="/add-blog">Write a Blog Post</a>
         </button>

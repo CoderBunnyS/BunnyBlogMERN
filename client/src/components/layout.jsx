@@ -13,8 +13,7 @@ function Layout(props) {
           onClick={() => {
             navigate("/");
           }}
-        >
-          The Solutions Engineering Blog
+        > Bunny&rsquo;s Solutions Engineering Blog
         </h1>
       </div>
       <div className="p-5">{props.children}</div>
