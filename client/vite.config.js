@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target: "https://bunny-blog-mern-backend.vercel.app/",
+        target: "http://localhost:8000",
       },
     },
   },
