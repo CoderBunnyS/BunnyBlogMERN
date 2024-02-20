@@ -25,6 +25,10 @@ function Blog() {
 
   const onDelete = async () => {
     try {
+      const confirmDelete = window.confirm("Are you sure you want to delete?");
+      if (!confirmDelete) {
+        return; // If user cancels the prompt, do nothing
+      }
       setLoading(true);
       const response = await axios.delete(`/api/blogs/${id}`);
       toast.success(response.data.message);
@@ -53,15 +57,7 @@ function Blog() {
           >
             Back
           </button>
-          <button
-            className="btn-contained"
-            onClick={() => navigate(`/edit-blog/${id}`)}
-          >
-            Edit
-          </button>
-          <button className="btn-outlined" onClick={onDelete}>
-            Delete
-          </button>
+ 
         </div>
       </div>
        <div className="title">
@@ -72,6 +68,17 @@ function Blog() {
      
       </div>
       <p className=" blogPara">{blog?.description}</p>
+      <div className="flex gap-3 buttonBox">
+      <button
+            className="btn-contained"
+            onClick={() => navigate(`/edit-blog/${id}`)}
+          >
+            Edit
+          </button>
+          <button className="btn-outlined" onClick={onDelete}>
+            Delete
+          </button>
+      </div>
     </div>
   );
 }
