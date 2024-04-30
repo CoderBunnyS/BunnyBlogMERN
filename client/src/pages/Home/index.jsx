@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import Loader from "../../components/Loader";
 import { useAuth0 } from "@auth0/auth0-react";
 
@@ -34,9 +34,9 @@ function Home() {
       <div className="flex justify-between items-center">
         {/* <h1 className="text-xl font-bold text-gray-700">All Blog Posts</h1> */}
         {isAuthenticated && 
-  <a href="/add-blog" className="btn-contained">
+  <Link to="/add-blog" className="btn-contained">
     Write a Blog Post
-  </a>
+  </Link>
 }
 
 
