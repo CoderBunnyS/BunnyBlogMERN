@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import Loader from "../../components/Loader";
+import { useAuth0 } from "@auth0/auth0-react";
 
 
 
@@ -10,6 +11,8 @@ function Home() {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [blogs, setBlogs] = useState([]);
+  const { isAuthenticated } = useAuth0();
+
   const getData = async () => {
     try {
       setLoading(true);
@@ -25,15 +28,17 @@ function Home() {
   useEffect(() => {
     getData();
   }, []);
-
   return (
     <div>
       {loading && <Loader />}
       <div className="flex justify-between items-center">
         {/* <h1 className="text-xl font-bold text-gray-700">All Blog Posts</h1> */}
-        <button className="btn-contained" onClick={() => navigate("/add-blog")}>
-          <a href="/add-blog">Write a Blog Post</a>
-        </button>
+        {isAuthenticated && 
+  <a href="/add-blog" className="btn-contained">
+    Write a Blog Post
+  </a>
+}
+
 
       </div>
       <div className="grid grid-cols-4 gap-5 mt-5">
