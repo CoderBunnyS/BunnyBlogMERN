@@ -22,7 +22,7 @@ function Layout({ children }) {
           }}
         > Bunny&rsquo;s Solutions Engineering Blog
         </h1>
-        <button>{!isAuthenticated && <LoginButton />}
+        <button id="login-button">{!isAuthenticated && <LoginButton />}
         {isAuthenticated && <LogoutButton />}
         </button>
       </div>

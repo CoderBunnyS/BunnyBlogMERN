@@ -34,8 +34,8 @@ textarea:focus {
 }
 
 button {
-  height: 45px;
-  margin-top: 25px;
+  height: 5vh;
+
 }
 .btn-contained {
   background-color: #371f36;
@@ -43,6 +43,16 @@ button {
   border-radius: 5px;
   padding: 0 20px;
   cursor: pointer;
+}
+
+#login-button {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  border: 2px solid white;
+  border-radius: 5px;
+  margin-top: 1%;
+  padding: 1%;
 }
 
 .btn-outlined {
