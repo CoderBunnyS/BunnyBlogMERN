@@ -8,6 +8,8 @@
 }
 .banner {
   background-color: #51034d;
+  display: flex;
+  padding-top: 2%;
 }
 input,
 textarea {
@@ -38,9 +40,17 @@ button {
 .btn-contained {
   background-color: #371f36;
   color: #fff;
-  border-radius: 2px;
+  border-radius: 5px;
   padding: 0 20px;
   cursor: pointer;
+}
+#login-button {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  border: 1px solid white;
+  border-radius: 5px;
+  margin-top: 1%;
 }
 .btn-outlined {
   background-color: #fff;
