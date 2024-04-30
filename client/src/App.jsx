@@ -6,6 +6,7 @@ import AddBlog from "./pages/AddBlog";
 import EditBlog from "./pages/EditBlog";
 import Layout from "./components/layout";
 import { AuthProvider } from "./context/AuthContext";
+import Callback from "./components/Callback";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             </Layout>
           }
         />
+         <Route path="/callback" element={<Callback />} />
         <Route
           path="/blog/:id"
           element={
