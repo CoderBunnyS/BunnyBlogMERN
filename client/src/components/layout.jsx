@@ -1,10 +1,16 @@
 /* eslint-disable react/prop-types */
+import React from 'react';
 import { useNavigate } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
+import LoginButton from "./LoginButton";
+import LogoutButton from "./Logout";
+import { useAuth0 } from "@auth0/auth0-react";
 
 
-function Layout(props) {
+function Layout({ children }) {
+  const { isAuthenticated } = useAuth0();
   const navigate = useNavigate();
+  console.log('Is Authenticated:', isAuthenticated); // Debugging line to check the authentication status
   return (
     <div>
       <Toaster position="top-center" reverseOrder={false} />
@@ -16,17 +22,11 @@ function Layout(props) {
           }}
         > Bunny&rsquo;s Solutions Engineering Blog
         </h1>
-        <button
-          className="btn-contained" id="login-button"
-          onClick={() => {
-            // Add your Auth0 login logic here
-            
-          }}
-        >
-          Login
+        <button>{!isAuthenticated && <LoginButton />}
+        {isAuthenticated && <LogoutButton />}
         </button>
       </div>
-      <div className="p-5">{props.children}</div>
+      <div className="p-5">{children}</div>
     </div>
   );
 }

@@ -4,6 +4,8 @@ import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import Loader from "../../components/Loader";
 
+
+
 function Home() {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
@@ -32,6 +34,7 @@ function Home() {
         <button className="btn-contained" onClick={() => navigate("/add-blog")}>
           <a href="/add-blog">Write a Blog Post</a>
         </button>
+
       </div>
       <div className="grid grid-cols-4 gap-5 mt-5">
         {blogs.map((blog) => (

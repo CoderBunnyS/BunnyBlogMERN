@@ -44,14 +44,7 @@ button {
   padding: 0 20px;
   cursor: pointer;
 }
-#login-button {
-  margin-left: auto;
-  display: flex;
-  align-items: center;
-  border: 1px solid white;
-  border-radius: 5px;
-  margin-top: 1%;
-}
+
 .btn-outlined {
   background-color: #fff;
   color: #1F2937;
