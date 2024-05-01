@@ -1,10 +1,11 @@
 //script to start backend server
+require('dotenv').config();
 const express = require("express");
 const app = express();
 const port = process.env.PORT || 8000;
 app.use(express.json())
 
-require('dotenv').config();
+
 const dbConnect = require("./config/dbConnect")
 
 app.use("/api/blogs", require("./routes/blogsRoute"));
