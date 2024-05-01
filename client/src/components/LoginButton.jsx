@@ -1,10 +1,10 @@
 import React from "react";
 import { useAuth0 } from "@auth0/auth0-react";
-import { useNavigate } from "react-router-dom";
+//import { useNavigate } from "react-router-dom";
 
 const LoginButton = () => {
   const { loginWithRedirect } = useAuth0();
-  const navigate = useNavigate();
+  //const navigate = useNavigate();
 
   const handleLogin = () => {
     // Store the current path to return to after authentication
@@ -15,7 +15,7 @@ const LoginButton = () => {
       redirectUri: `${window.location.origin}/callback`
     });
   };
-
+  
   return <button onClick={handleLogin}>Log In</button>;
 };
 
