@@ -6,7 +6,6 @@ import LoginButton from "./LoginButton";
 import LogoutButton from "./Logout";
 import { useAuth0 } from "@auth0/auth0-react";
 
-
 function Layout({ children }) {
   const { isAuthenticated } = useAuth0();
   const navigate = useNavigate();
@@ -20,11 +19,9 @@ function Layout({ children }) {
           onClick={() => {
             navigate("/");
           }}
-        > Bunny&rsquo;s Solutions Engineering Blog
+        > Bunny’s Solutions Engineering Blog
         </h1>
-        <button>{!isAuthenticated && <LoginButton />}
-        {isAuthenticated && <LogoutButton />}
-        </button>
+        <div id="login-button">{!isAuthenticated ? <LoginButton /> : <LogoutButton />}</div>
       </div>
       <div className="p-5">{children}</div>
     </div>
