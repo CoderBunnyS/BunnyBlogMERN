@@ -16,7 +16,7 @@ const Callback = () => {
   }, [isAuthenticated, isLoading, error, navigate]);
 
   return (
-    <div>Loading...</div>  // Provide a loading indicator or handle errors appropriately
+    <div>Loading...</div>  
   );
 };
 
