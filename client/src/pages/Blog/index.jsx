@@ -5,6 +5,7 @@ import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import Loader from "../../components/Loader";
 import { useAuth0 } from "@auth0/auth0-react";
+import UserGreeting from "../../components/UserGreeting";
 
 function Blog() {
   const [blog, setBlog] = useState();
@@ -57,6 +58,7 @@ function Blog() {
           Back
         </button>
       </div>
+      <div id="blogPageGreeting"><UserGreeting /></div>
       <div className="title">
         <h1 className="text-3xl contained contained-content-center title">{blog?.title}</h1>
       </div>

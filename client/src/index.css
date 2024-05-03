@@ -88,6 +88,12 @@ button {
   align-items: center;
   justify-content: space-evenly;
 }
+#blogPageGreeting {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 85%;
+}
 
 .blogPara {
   font-size: 150%;

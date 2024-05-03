@@ -4,6 +4,8 @@ import { toast } from "react-hot-toast";
 import { useNavigate, Link } from "react-router-dom";
 import Loader from "../../components/Loader";
 import { useAuth0 } from "@auth0/auth0-react";
+import UserGreeting from '../../components/UserGreeting';
+
 
 
 
@@ -37,8 +39,9 @@ function Home() {
   <Link to="/add-blog" className="btn-contained">
     Write a Blog Post
   </Link>
+  
 }
-
+<UserGreeting />
 
       </div>
       <div className="grid grid-cols-4 gap-5 mt-5">
