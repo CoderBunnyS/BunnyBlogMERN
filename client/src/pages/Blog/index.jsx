@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import Loader from "../../components/Loader";
-import { useAuth0 } from "@auth0/auth0-react";
+import { useAuth } from "../../context/AuthContext"; 
 import UserGreeting from "../../components/userGreeting";
 
 function Blog() {
@@ -12,7 +12,7 @@ function Blog() {
   const [loading, setLoading] = useState(false);
   const { id } = useParams();
   const navigate = useNavigate();
-  const { isAuthenticated } = useAuth0();
+  const { isAdmin } = useAuth(); // Use isAdmin from AuthContext
 
   const getData = async () => {
     try {
@@ -20,7 +20,7 @@ function Blog() {
       const response = await axios.get(`/api/blogs/${id}`);
       setBlog(response.data.data);
     } catch (error) {
-      toast.error(error.message);  // Corrected typo from 'mesage' to 'message'
+      toast.error(error.message);
     } finally {
       setLoading(false);
     }
@@ -30,7 +30,7 @@ function Blog() {
     try {
       const confirmDelete = window.confirm("Are you sure you want to delete?");
       if (!confirmDelete) {
-        return; // If user cancels the prompt, do nothing
+        return;
       }
       setLoading(true);
       const response = await axios.delete(`/api/blogs/${id}`);
@@ -51,10 +51,7 @@ function Blog() {
     <div className="flex flex-col gap-8">
       {loading && <Loader />}
       <div className="flex justify-between items-center">
-        <button
-          className="btn-outlined"
-          onClick={() => navigate("/")}
-        >
+        <button className="btn-outlined" onClick={() => navigate("/")}>
           Back
         </button>
       </div>
@@ -66,12 +63,9 @@ function Blog() {
         <img src={blog?.image} className="contained object-bover rounded" alt="Blog Post" />
       </div>
       <p className="blogPara">{blog?.description}</p>
-      {isAuthenticated && (
+      {isAdmin && ( // Use isAdmin to conditionally render these buttons
         <div className="flex gap-3 buttonBox">
-          <button
-            className="btn-contained"
-            onClick={() => navigate(`/edit-blog/${id}`)}
-          >
+          <button className="btn-contained" onClick={() => navigate(`/edit-blog/${id}`)}>
             Edit
           </button>
           <button className="btn-outlined" onClick={onDelete}>

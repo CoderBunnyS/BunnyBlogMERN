@@ -7,7 +7,7 @@ const UserGreeting = () => {
   return (
     <div>
       {isAuthenticated && user ? (
-        <h1>Hello, {user.name || 'Guest'}</h1>  // Displays user name, or 'Guest' if name is not available
+        <h1>Hello, {user.email || 'Guest'}</h1>  // Displays user name, or 'Guest' if name is not available
       ) : (
         <h1>Welcome to my blog!</h1>  // Display when the user is not logged in
       )}

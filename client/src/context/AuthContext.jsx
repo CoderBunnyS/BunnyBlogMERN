@@ -12,7 +12,7 @@ export const AuthProvider = ({ children }) => {
   const { isAuthenticated, user, loginWithRedirect, logout } = useAuth0();
 
   const login = () => loginWithRedirect();
-  const isAdmin = user && user.name === "Bunny"; // Check if the logged-in user is "Bunny"
+  const isAdmin = user && user.email === "schaeferbunny@gmail.com"; // Check if the logged-in user's email is correct
 
   return (
     <AuthContext.Provider value={{ isAuthenticated, user, login, logout, isAdmin }}>
