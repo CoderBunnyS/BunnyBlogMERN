@@ -5,7 +5,7 @@
   "scripts": {
     "install-server": "cd server && npm install",
     "install-client": "cd client && npm install",
-    "build": "npm run install-server && npm run install-client && npm run build-client",
+    "build": "npm run install-server && npm run install-client && npm run prebuild-client && npm run build-client",
     "build-client": "cd client && npm run build",
     "start": "node server/server.js",
     "start-client": "cd client && npm start"
