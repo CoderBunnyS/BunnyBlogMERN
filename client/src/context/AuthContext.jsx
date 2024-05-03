@@ -1,5 +1,6 @@
 // src/context/AuthContext.js
-import React, { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useState, useEffect } from 'react';
+import { useAuth0 } from '@auth0/auth0-react';
 
 const AuthContext = createContext(null);
 
@@ -8,13 +9,13 @@ export function useAuth() {
 }
 
 export const AuthProvider = ({ children }) => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const { isAuthenticated, user, loginWithRedirect, logout } = useAuth0();
 
-  const login = () => setIsLoggedIn(true);
-  const logout = () => setIsLoggedIn(false);
+  const login = () => loginWithRedirect();
+  const isAdmin = user && user.name === "Bunny"; // Check if the logged-in user is "Bunny"
 
   return (
-    <AuthContext.Provider value={{ isLoggedIn, login, logout }}>
+    <AuthContext.Provider value={{ isAuthenticated, user, login, logout, isAdmin }}>
       {children}
     </AuthContext.Provider>
   );

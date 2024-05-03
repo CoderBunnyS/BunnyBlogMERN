@@ -11,6 +11,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <Auth0Provider
       domain={auth_config.domain}
       clientId={auth_config.clientId}
+      audience={auth_config.audience}
       authorizationParams={{ redirect_uri: window.location.origin }}
     >
       <App />
