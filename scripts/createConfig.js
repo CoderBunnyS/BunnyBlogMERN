@@ -7,4 +7,4 @@ const config = {
     audience: process.env.AUTH0_AUDIENCE
 };
 
-fs.writeFileSync(path.join(__dirname, '../src/auth_config.json'), JSON.stringify(config, null, 2));
+fs.writeFileSync(path.join(__dirname, '../client/src/auth_config.json'), JSON.stringify(config, null, 2));
