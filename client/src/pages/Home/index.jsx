@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
 import Loader from '../../components/Loader';
-import UserGreeting from "../../components/userGreeting";
+import UserGreeting from "../../components/UserGreeting";
 import { useAuth } from '../../context/AuthContext'; // Ensure this import path is correct
 import { Link } from 'react-router-dom';
 
