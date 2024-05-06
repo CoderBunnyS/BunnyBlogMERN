@@ -15,9 +15,13 @@ __dirname = path.resolve();
 if (process.env.NODE_ENV === "production") {
   const clientPath = path.join(__dirname, '../client/dist');
   app.use(express.static(path.join(clientPath)));
-  app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "client", "dist", "index.html"));
-  });
+
+    // Handle all non-API routes by returning the index.html file
+    app.get(/^(?!\/api\/).*/, (req, res) => {  // Regex to ignore /api paths
+      res.sendFile(path.join(clientPath, "index.html"));
+  // app.get("*", (req, res) => {
+  //   res.sendFile(path.join(__dirname, "client", "dist", "index.html"));
+  // });
 } 
 //nodemon server/server
 app.listen(port, () => console.log(`Backend Server Running On PORT ${port}`));
