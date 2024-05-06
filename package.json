@@ -5,10 +5,12 @@
   "scripts": {
     "install-server": "cd server && npm install",
     "install-client": "cd client && npm install",
-    "build": "npm run install-server && npm run install-client && cd ../ && npm run build-client",
-    "build-client": "npm run build",
-    "start": "node server/server.js",
-    "start-client": "cd client && npm start"
+    "build-server": "echo 'No build process defined for server'",
+    "build-client": "cd client && npm run build",
+    "build": "npm run install-server && npm run install-client && npm run build-client",
+    "start-server": "cd server && npm start",
+    "start-client": "cd client && npm run dev",
+    "start": "npm run start-server"
   },
   "author": "",
   "license": "ISC",
@@ -23,5 +25,8 @@
     "react-quill": "^2.0.0"
   },
   "description": "",
-  "proxy": "http://localhost:8000"
+  "proxy": "http://localhost:8000",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
 }
