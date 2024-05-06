@@ -5,7 +5,7 @@ import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import Loader from "../../components/Loader";
 import { useAuth } from "../../context/AuthContext"; 
-import UserGreeting from "../../components/userGreeting";
+import UserGreeting from "../../components/UserGreeting";
 
 function Blog() {
   const [blog, setBlog] = useState();
