@@ -1,6 +1,6 @@
 // src/context/AuthContext.js
-import { createContext, useContext, useState, useEffect } from 'react';
-import { useAuth0 } from '@auth0/auth0-react';
+import { createContext, useContext, useState, useEffect } from "react";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const AuthContext = createContext(null);
 
@@ -15,7 +15,9 @@ export const AuthProvider = ({ children }) => {
   const isAdmin = user && user.email === "schaeferbunny@gmail.com"; // Check if the logged-in user's email is correct
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated, user, login, logout, isAdmin }}>
+    <AuthContext.Provider
+      value={{ isAuthenticated, user, login, logout, isAdmin }}
+    >
       {children}
     </AuthContext.Provider>
   );
