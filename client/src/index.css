@@ -5,6 +5,7 @@
 
 * {
   font-family: "Montserrat", sans-serif;
+
 }
 .banner {
   background-color: #51034d;
@@ -76,13 +77,21 @@ button {
 .container {
   display: flex;
   width: 100%;
+  
 }
 
 .contained {
   flex: 1;
   padding: 10px;
-}
 
+}
+#blogImg{
+  width: 80%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 3%;
+  margin: 0% 0% 0% 20%;
+}
 .contained-content-center {
   display: flex;
   align-items: center;
@@ -94,10 +103,13 @@ button {
   align-items: center;
   margin-left: 85%;
 }
-
+p {
+  margin: 3%;
+}
 .blogPara {
-  font-size: 150%;
+  font-size: 120%;
   white-space: pre-line;
+
 }
 
 .buttonBox {

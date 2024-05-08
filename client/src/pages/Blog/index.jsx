@@ -63,7 +63,7 @@ function Blog() {
         <h1 className="text-3xl contained contained-content-center title">{blog?.title}</h1>
       </div>
       <div className="container">
-        <img src={blog?.image} className="contained object-cover rounded" alt="Blog Post" />
+        <img id="blogImg" src={blog?.image} className="contained object-cover rounded" alt="Blog Post" />
       </div>
       <p className="blogPara">{blog?.description}</p>
       {isAdmin && (
