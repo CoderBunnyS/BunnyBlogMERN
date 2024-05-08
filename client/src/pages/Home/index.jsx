@@ -4,27 +4,30 @@ import axios from 'axios';
 import { toast } from 'react-hot-toast';
 import Loader from '../../components/Loader';
 import UserGreeting from "../../components/UserGreeting";
-import { useAuth } from '../../context/AuthContext'; // Ensure this import path is correct
+import { useAuth } from '../../context/AuthContext'; 
 import { Link } from 'react-router-dom';
 
+//Main page component that displays all blog posts
 function Home() {
     const navigate = useNavigate();
     const [loading, setLoading] = useState(false);
     const [blogs, setBlogs] = useState([]);
-    const { isAdmin } = useAuth(); // Get isAdmin from context
+    const { isAdmin } = useAuth(); // Get isAdmin from context to check if user is an admin
 
+    // Function to fetch blog posts from the server
     const getData = async () => {
         try {
             setLoading(true);
             const response = await axios.get("/api/blogs");
-            setBlogs(response.data.data);
+            setBlogs(response.data.data); // Set the blog posts in the state
         } catch (error) {
-            toast.error(error.message);
+            toast.error(error.message); // Display error message if fetch request fails
         } finally {
-            setLoading(false);
+            setLoading(false); // Ensure loading state is false after fetch operation
         }
     };
 
+    // Fetch blog posts when the component mounts
     useEffect(() => {
         getData();
     }, []);
