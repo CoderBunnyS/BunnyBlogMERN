@@ -5,7 +5,7 @@ import Home from "./pages/Home";
 import Blog from "./pages/Blog";
 import AddBlog from "./pages/AddBlog";
 import EditBlog from "./pages/EditBlog";
-import Layout from "./components/Layout";
+import Layout from "./components/layout";
 import { AuthProvider } from "./context/AuthContext";
 import Callback from "./components/Callback";
 
