@@ -1,20 +1,32 @@
-import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import React, { useEffect } from "react";
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import ReactGA from 'react-ga4';
 import Home from "./pages/Home";
 import Blog from "./pages/Blog";
 import AddBlog from "./pages/AddBlog";
 import EditBlog from "./pages/EditBlog";
-import Layout from "./components/layout";
+import Layout from "./components/Layout";
 import { AuthProvider } from "./context/AuthContext";
 import Callback from "./components/Callback";
 
+// Custom hook for tracking page views
+const usePageTracking = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    ReactGA.send({ hitType: 'pageview', page: location.pathname + location.search });
+  }, [location]);
+};
+
 // Main application component that sets up routing and context providers
 function App() {
+
   return (
     // Provides authentication context to all child components
     <AuthProvider>
       {/* Router component to manage navigation within the app */}
       <BrowserRouter>
+      <PageTracker />
         {/* Define all application routes */}
         <Routes>
           {/* Home page route */}
@@ -64,5 +76,11 @@ function App() {
     </AuthProvider>
   );
 }
+
+// Component to handle page tracking
+const PageTracker = () => {
+  usePageTracking();
+  return null;
+};
 
 export default App;

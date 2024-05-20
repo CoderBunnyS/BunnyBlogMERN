@@ -6,6 +6,7 @@ import Loader from "../../components/Loader";
 import { useAuth } from "../../context/AuthContext"; 
 import UserGreeting from "../../components/UserGreeting";
 
+
 // Functional component to display a specific blog post
 function Blog() {
   const [blog, setBlog] = useState(); // State to hold blog data
