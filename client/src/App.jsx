@@ -7,6 +7,8 @@ import EditBlog from "./pages/EditBlog";
 import Layout from "./components/layout";
 import { AuthProvider } from "./context/AuthContext";
 import Callback from "./components/Callback";
+import TermsOfService from "./pages/Legal/TermsOfService";
+import PrivacyPolicy from "./pages/Legal/Privacy";
 
 // Main application component that sets up routing and context providers
 function App() {
@@ -59,6 +61,8 @@ function App() {
               </Layout>
             }
           />
+          <Route path="/terms-of-service" element={<TermsOfService />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         </Routes>
       </BrowserRouter>
     </AuthProvider>

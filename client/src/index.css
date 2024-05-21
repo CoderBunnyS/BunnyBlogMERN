@@ -115,7 +115,16 @@ p {
   margin-left: auto;
   
 }
-
+footer {
+  background-color: #51034d;
+  color: white;
+  text-align: center;
+  padding: 1%;
+  font-size: smaller;
+}
+.privacy {
+  margin-left: 1%;
+}
 @media (max-width: 760px) {
   .banner {
     flex-direction: column;

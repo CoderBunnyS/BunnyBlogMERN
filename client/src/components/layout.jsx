@@ -5,7 +5,7 @@ import { Toaster } from "react-hot-toast";
 import LoginButton from "./LoginButton";
 import LogoutButton from "./Logout";
 import { useAuth0 } from "@auth0/auth0-react";
-
+import { Link } from 'react-router-dom';
 
 function Layout({ children }) {
   const { isAuthenticated } = useAuth0();
@@ -26,6 +26,10 @@ function Layout({ children }) {
         
       </div>
       <div className="p-5">{children}</div>
+      <footer>
+        <Link to="/terms-of-service">Terms of Service</Link>
+        <Link to="/privacy" className='privacy'>Privacy Policy</Link>
+      </footer>
     </div>
   );
 }
