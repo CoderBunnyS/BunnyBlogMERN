@@ -5,7 +5,7 @@ import { toast } from "react-hot-toast";
 import Loader from "../../components/Loader";
 import { useAuth } from "../../context/AuthContext"; 
 import UserGreeting from "../../components/UserGreeting";
-
+import Footer from "../../components/Footer";
 
 // Functional component to display a specific blog post
 function Blog() {
@@ -77,6 +77,7 @@ function Blog() {
           </button>
         </div>
       )}
+      <Footer />
     </div>
   );
 }

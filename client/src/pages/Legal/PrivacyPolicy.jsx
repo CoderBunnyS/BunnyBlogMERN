@@ -1,9 +1,11 @@
 // src/pages/PrivacyPolicy.jsx
 import React from 'react';
+import Layout from '../../components/layout';
 
 const PrivacyPolicy = () => {
   return (
     <div className="max-w-4xl mx-auto py-8 px-4">
+    <Layout />
       <h1 className="text-3xl font-bold mb-4">Privacy Policy</h1>
       <p className="mb-2">Bunny’s Solutions Engineering Blog</p>
       <p className="mb-2">Last Updated: May 20, 2024</p>

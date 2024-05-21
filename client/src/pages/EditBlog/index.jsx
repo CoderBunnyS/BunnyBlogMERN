@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import BlogForm from "../../components/BlogForm";
 import Loader from "../../components/Loader";
+import Footer from "../../components/Footer";
 
 // Functional component for editing an existing blog post
 function EditBlog() {
@@ -35,6 +36,7 @@ function EditBlog() {
       <h1 className="text-2xl font-bold text-gray-800">Edit Blog Post</h1>
       <hr />
       <BlogForm blogData={blog} />
+      <Footer />
     </div>
   );
 }

@@ -26,10 +26,7 @@ function Layout({ children }) {
         
       </div>
       <div className="p-5">{children}</div>
-      <footer>
-        <Link to="/terms-of-service">Terms of Service</Link>
-        <Link to="/privacy" className='privacy'>Privacy Policy</Link>
-      </footer>
+
     </div>
   );
 }

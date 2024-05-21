@@ -1,9 +1,11 @@
 // src/pages/TermsOfService.jsx
 import React from 'react';
+import Layout from '../../components/layout';
 
 const TermsOfService = () => {
   return (
     <div className="max-w-4xl mx-auto py-8 px-4">
+  <Layout></Layout>
       <h1 className="text-3xl font-bold mb-4">Terms of Service</h1>
       <p className="mb-2">Last updated: May 20, 2024</p>
       <hr className="mb-4" />

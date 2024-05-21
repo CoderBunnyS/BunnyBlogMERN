@@ -6,6 +6,7 @@ import Loader from '../../components/Loader';
 import UserGreeting from "../../components/UserGreeting";
 import { useAuth } from '../../context/AuthContext'; 
 import { Link } from 'react-router-dom';
+import Footer from '../../components/Footer';
 
 //Main page component that displays all blog posts
 function Home() {
@@ -60,6 +61,7 @@ function Home() {
                     </div>
                 ))}
             </div>
+            <Footer />
         </div>
     );
 }

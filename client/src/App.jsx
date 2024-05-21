@@ -9,7 +9,7 @@ import Layout from "./components/layout";
 import { AuthProvider } from "./context/AuthContext";
 import Callback from "./components/Callback";
 import TermsOfService from "./pages/Legal/TermsOfService";
-import PrivacyPolicy from "./pages/Legal/Privacy";
+import PrivacyPolicy from "./pages/Legal/PrivacyPolicy";
 
 // Custom hook for tracking page views
 const usePageTracking = () => {
